@@ -6,9 +6,9 @@ var winloss = document.getElementById("winstate");
 class word{
     constructor(n){
         this.name = n;
-        this.themesong = document.getElementById("sound");
         this.guesses=5;
         this.dummysentence =[];
+        
 
     }
     draw(){
@@ -27,7 +27,18 @@ class word{
         }
     }
     playmusic(){
-        this.media.play();
+        var audio = new Audio();
+        if(this.name.toLowerCase() === "doom"){
+            audio.src = "../sound/level1.mid";
+            
+        }
+        if(this.name.toLowerCase() === "skyrim"){
+            audio.src = "../sound/The_Elder_Scrolls_V_Skyrim_Dragonborn_Theme.mid";
+        }
+        if(this.name.toLowerCase() === "mario"){
+            audio.src = "../sound/Mario-Sheet-Music-Overworld-Main-Theme.mid";
+        }
+        audio.play();
     }
 }
 
@@ -36,6 +47,7 @@ var keyes =[];
 rand = Math.floor(Math.random() * wordlist.length);
 var x = new word(wordlist[rand]);
 x.draw();
+x.playmusic();
 //creates new class from wordlist and corrisponding media file
 // function createwords(){
 
