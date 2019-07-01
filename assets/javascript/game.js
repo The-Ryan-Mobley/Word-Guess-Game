@@ -83,7 +83,7 @@ class word {
 var usedwords =[];
 var wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];
 var keyes = [];
-rand = Math.floor(Math.random() * wordlist.length);
+var rand = Math.floor(Math.random() * wordlist.length);
 var x = new word(wordlist[rand]);
 x.draw();
 x.playmusic();
@@ -92,6 +92,7 @@ x.guessdisplay();
 
 function reroll() {
     x.rightpicks =0;
+    rand = Math.floor(Math.random() * wordlist.length);
     x.name = wordlist[rand];
     x.draw();
     x.playmusic();
@@ -104,16 +105,14 @@ function reroll() {
 function youwin() {
    
     if(wordlist.length > 1){
-        if(wordlist.indexOf(x.name) !== wordlist.length){
-            wordlist.splice(wordlist.indexOf(x.name), 1);
-            usedwords.push(x.name);
-        }
+         wordlist.splice(wordlist.indexOf(x.name), 1);
+
     }
     else{
         wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];
     }
     winloss.textContent = "YOU WIN!";
-    my_context.drawImage(x.gamepic, 0, 0);
+    my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);
 
 
     setInterval(function () {        
