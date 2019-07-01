@@ -112,6 +112,8 @@ function youwin() {
         wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];
     }
     winloss.textContent = "YOU WIN!";
+    my_context.fillStyle = "black";
+    my_context.fillRect(0, 0, canvas.width, canvas.height);
     my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);
 
 
