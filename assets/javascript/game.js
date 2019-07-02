@@ -45,7 +45,7 @@ class word {
                 this.gamepic.src = "assets/images/doom_box.jpg"
                 break;
             }
-            case "skyrim":{ 
+            case "skyrim":{
                 this.audio.src = "assets/sound/The_Elder_Scrolls_V_Skyrim_Dragonborn_Theme.mp3";
                 this.gamepic.src = "assets/images/220px-The_Elder_Scrolls_V_Skyrim_cover.jpg";
                 break;
@@ -77,7 +77,8 @@ class word {
             default:{
                 console.log(this.name);
             }
-        }                                                               
+        }
+        this.audio.autoplay = true;                                                               
         this.audio.play();
         this.audio.loop = true;
     }
