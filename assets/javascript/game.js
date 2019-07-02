@@ -16,9 +16,12 @@ class word {
 
     }
     clear(){
+        my_context.fillStyle = "black";
+        my_context.fillRect(0, 0, canvas.width, canvas.height);
 
     }
     draw() {
+        
         this.dummysentence = [];
         for (let i = 0; i < this.name.length; i++) {
             this.dummysentence[i] = "_ ";
@@ -85,6 +88,7 @@ var wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "tea
 var keyes = [];
 var rand = Math.floor(Math.random() * wordlist.length);
 var x = new word(wordlist[rand]);
+x.clear();
 x.draw();
 x.playmusic();
 x.guessdisplay();
@@ -98,7 +102,7 @@ function reroll() {
     x.playmusic();
     x.guesses = 5;
     x.guessdisplay();
-    winloss.textContent = "";
+    
     keyes= [];
 }
 
@@ -111,14 +115,12 @@ function youwin() {
     else{
         wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];
     }
-    winloss.textContent = "YOU WIN!";
     my_context.fillStyle = "black";
     my_context.fillRect(0, 0, canvas.width, canvas.height);
     my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);
 
 
-    setInterval(function () {        
-    }, 1000);
+    
     winloss.textContent = x.name;
     reroll();
 
@@ -143,6 +145,7 @@ document.onkeyup = function (event) {
     }
     if (x.guesses === 0) {
         winloss.textContent = "YOU LOSE";
+        alert("YOU LOSE");
         reroll();
 
     }
