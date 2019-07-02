@@ -30,3 +30,11 @@ html, body {
   0% { x: 0; }
   100% { x: -2000; }
 }
+@font-face {
+    font-family: 'Grudblitter';
+    src: url('grudblitter.eot'),
+		 url('grudblitter.woff') format('woff'),
+		 url('grudblitter.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
