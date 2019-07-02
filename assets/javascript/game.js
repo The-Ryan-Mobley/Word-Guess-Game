@@ -10,7 +10,7 @@ class word {
         this.guesses = 5;                                               //how many guesses the player has
         this.rightpicks = 0;                                            //counts how many right characters have been pressed to determine completion
         this.dummysentence = [];                                        //prints blank underscores to hide correct name
-        this.audio = new Audio();                                       //plays music
+        this.audio = document.getElementById("audio");                  //plays music
         this.gamepic = new Image();                                     //the picture of the game
 
     }
@@ -79,8 +79,13 @@ class word {
             }
         }
         this.audio.autoplay = true;                                                               
-        this.audio.play();
         this.audio.loop = true;
+        //this.audio.play();
+        const playPromise = this.audio.play();
+        if (playPromise !== null){
+        playPromise.catch(() => { this.aduio.play(); })
+        }
+
     }
     guessdisplay() {                                                                    //displays how many guesses the player has
         guesscounter.textContent = "Guesses Left: " + this.guesses;
