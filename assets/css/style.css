@@ -2,7 +2,7 @@
 @import 'https://fonts.googleapis.com/css?family=Righteous';
 
 html, body {
-  overflow: hidden;
+  overflow: auto;
   background: #131313;
 }
 .selector{
@@ -18,9 +18,13 @@ html, body {
 #text {
     font-size: 60px;
     font-family: 'Press Start 2P', cursive;
+    
     /* font-family: Righteous; */
 }
-
+.text{
+    color:#ffffff;
+    font-family: 'Press Start 2P', cursive;
+}
 #fill {
   animation: shift 5s linear infinite;
 }
@@ -29,6 +33,23 @@ html, body {
 }
 #guessspot{
     font-size: 20px;
+}
+#guesscounter{
+    margin-bottom: 10%;
+}
+footer{
+    
+    position: relative;
+    display:block;
+    border-top:2%;
+    border-top-style:solid;
+    border-top-color: #4aaaa5;
+    padding:1%;
+    width:100%;
+    background-color:#666666;
+    text-align:center;
+    clear:both;
+
 }
 @keyframes shift {
   0% { x: 0; }

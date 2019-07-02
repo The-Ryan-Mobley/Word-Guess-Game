@@ -31,7 +31,7 @@ class word {
         if (this.name.indexOf(letter) !== -1) {
             for(let i = 0; i < this.name.length; i++){
                 if(letter === this.name[i]){
-                    this.dummysentence[i] = letter;
+                    this.dummysentence[i] = letter + " ";
                     this.rightpicks++;
                 }
             }
@@ -78,13 +78,12 @@ class word {
                 console.log(this.name);
             }
         }
-        this.audio.autoplay = true;                                                               
-        this.audio.loop = true;
-        //this.audio.play();
-        const playPromise = this.audio.play();
-        if (playPromise !== null){
-        playPromise.catch(() => { this.aduio.play(); })
-        }
+                                                                  
+        //this.audio.loop = true;
+        // const playPromise = this.audio.play();
+        // if (playPromise !== null){
+        // playPromise.catch(() => { this.aduio.play();})
+        // }
 
     }
     guessdisplay() {                                                                    //displays how many guesses the player has

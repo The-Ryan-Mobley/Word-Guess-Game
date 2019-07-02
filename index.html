@@ -10,8 +10,9 @@
       <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="assets/css/style.css">
     </head>
-    <body>
-        <audio id='audio' controls autoplay></audio>
+    <body class="d-flex flex-column h-100">
+        <iframe allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio id='audio' autoplay loop></audio>
     <div class="container text-center">
       <div class ="row">
         <div class="col">
@@ -58,8 +59,9 @@
         </div>
       </div>
       <div class="row">
-        <div class ="col d-flex justify-content-center p-3 mx-auto">
+        <div class ="col justify-content-center p-3 mx-auto">
             <canvas id="canvas" width="400" height="400">Canvas not supported</canvas>
+            
         </div>
       </div>
       <div class="row">
@@ -69,12 +71,13 @@
           <p class="selector" id="guesscounter"></p>
         </div>
       </div>
-      <footer class="footer">
-          <div class="container">
-            <span class="text">copyright &#x24B8</span>
-          </div>
-        </footer>
+      
     </div>
+    <footer class="footer mt-auto py-5">
+        <div class="container">
+          <span class="text footertext">created by Ryan Mobley</span>
+        </div>
+      </footer>
 
 
 
