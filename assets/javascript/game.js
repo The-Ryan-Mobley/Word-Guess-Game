@@ -70,9 +70,12 @@ class word {
                 this.gamepic.src = "assets/images/ZrV8mkWSiCSpuXtEXyJCdT-320-80.jpg";
                 break;
             }
-            default:{
+            case "teamfortress":{
                 this.audio.src = "assets/sound/32169_Team-Fortress-2-Theme.mp3";
                 this.gamepic.src = "assets/images/400px-Team_Fortress_2_Group_Photo.jpg";
+            }
+            default:{
+                console.log(this.name);
             }
         }                                                               
         this.audio.play();
