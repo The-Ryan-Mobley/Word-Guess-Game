@@ -13,16 +13,19 @@ html, body {
 }
 
 #text {
-   
     font-size: 75px;
     font-family: Righteous;
-
 }
 
 #fill {
   animation: shift 5s linear infinite;
 }
-
+#winstate{
+    font-size: 100px;
+}
+#guessspot{
+    font-size: 50px;
+}
 @keyframes shift {
   0% { x: 0; }
   100% { x: -2000; }

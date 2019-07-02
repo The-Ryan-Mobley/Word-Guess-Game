@@ -21,7 +21,7 @@ class word {
 
     }
     draw() {
-        
+        winloss.textContent ="???";
         this.dummysentence = [];
         for (let i = 0; i < this.name.length; i++) {
             this.dummysentence[i] = "_ ";
@@ -98,12 +98,11 @@ function reroll() {
     x.rightpicks =0;
     rand = Math.floor(Math.random() * wordlist.length);
     x.name = wordlist[rand];
+    x.guesses = 5;
+    keyes= [];
     x.draw();
     x.playmusic();
-    x.guesses = 5;
     x.guessdisplay();
-    
-    keyes= [];
 }
 
 function youwin() {
@@ -117,10 +116,7 @@ function youwin() {
     }
     my_context.fillStyle = "black";
     my_context.fillRect(0, 0, canvas.width, canvas.height);
-    my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);
-
-
-    
+    my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);  
     winloss.textContent = x.name;
     reroll();
 
