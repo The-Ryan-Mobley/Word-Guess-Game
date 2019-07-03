@@ -6,10 +6,14 @@ html, body {
   background: #131313;
   
 }
-
+p{
+    color: #02d43d;
+    font-family: 'Press Start 2P', cursive;
+}
 .selector{
     font-family: 'Press Start 2P', cursive;
     color: #02d43d;
+    padding:1%;
     border-style: solid;
     border-color:#02d43d;
 }
@@ -18,14 +22,16 @@ html, body {
     height:50%;
     position: relative;
 }
-
+#canvas{
+    margin-top: -3%;
+}
 #text {
     font-size: 40px;
     font-family: 'Press Start 2P', cursive;
     
     /* font-family: Righteous; */
 }
-.text{
+.footer-text{
     color:#ffffff;
     font-family: 'Press Start 2P', cursive;
 }
@@ -33,25 +39,31 @@ html, body {
   animation: shift 5s linear infinite;
 }
 #winstate{
-    font-size: 60px;
+    margin-top:-15%;
+    font-size: 50px;
 }
 #guessspot{
     font-size: 15px;
 }
 #guesscounter{
     font-size:12px;
+    
+}
+#correctguesses{
+    font-size:12px;
     margin-bottom: 10%;
 }
 footer{
-    
+    background: url(../images/dark-honeycomb.png);
+    background-repeat: repeat;
     position: relative;
     display:block;
     border-top:2%;
     border-top-style:solid;
-    border-top-color: #4aaaa5;
+    border-top-color: #ffffff;
     padding:1%;
     width:100%;
-    background-color:#666666;
+    
     text-align:center;
     clear:both;
 

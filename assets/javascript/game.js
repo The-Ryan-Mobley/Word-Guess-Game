@@ -1,11 +1,14 @@
 var guessword = document.getElementById("guessspot");                   //HTML Elements  where the user input is displayed
 var winloss = document.getElementById("winstate");                      //shows the title of the game or displays that you lost
-var guesscounter = document.getElementById("guesscounter");             //counts rmeaining guesses
+var guesscounter = document.getElementById("guesscounter");
+var wincounter = document.getElementById("correctguesses");             //counts rmeaining guesses
 var canvas = document.getElementById("canvas");                         //canvas that displays game images
 var my_context = canvas.getContext('2d');
 
+
 class word {
     constructor(n) {
+        this.totalwins =0;
         this.name = n;                                                  //the name that the player guesses essential for most of the program
         this.guesses = 5;                                               //how many guesses the player has
         this.rightpicks = 0;                                            //counts how many right characters have been pressed to determine completion
@@ -73,9 +76,7 @@ class word {
             case "teamfortress":{
                 this.audio.src = "assets/sound/32169_Team-Fortress-2-Theme.mp3";
                 this.gamepic.src = "assets/images/400px-Team_Fortress_2_Group_Photo.jpg";
-            }
-            default:{
-                console.log(this.name);
+                break;
             }
         }
                                                                   
@@ -91,11 +92,11 @@ class word {
 
     }
     cleanslate(){
+        this.totalwins =0;
         activegame = false;                                                                       //initializes the first level
         winloss.textContent ="PRESS S TO START";
         this.clear();
         this.draw();
-        this.playmusic();
         this.guessdisplay();
     }
 }
@@ -122,14 +123,15 @@ function youwin() {                                                             
                                                                                                       //the array and resets it once it is empty. also resets parameters for
     if(wordlist.length > 1){                                                                          //the next level
          wordlist.splice(wordlist.indexOf(x.name), 1);
-
     }
     else{
-        wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "Halflife", "teamfortress"];
+        wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];
     }
+    x.totalwins++;
     x.clear();
     my_context.drawImage(x.gamepic, canvas.width / 2 - x.gamepic.width / 2, canvas.height / 2 - x.gamepic.height / 2);  
     winloss.textContent = x.name.toUpperCase();
+    wincounter.textContent ="Wins: " + x.totalwins;
     reroll();
 
 }
@@ -169,7 +171,9 @@ document.onkeyup = function (event) {                                           
         x.cleanslate();
         if(press.toLowerCase() === "s"){
             activegame = true;
+            wincounter.textContent="Wins: ";
             winstate.textContent = "???";
+            x.playmusic();
         }
     }
 
