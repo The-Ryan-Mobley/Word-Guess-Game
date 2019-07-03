@@ -60,7 +60,7 @@ class word {
             }
             case  "punchout":{
                 this.audio.src = "assets/sound/18 - Training Theme.mp3";
-                this.gamepic.src = "assets/images/mike-tysons-punch-out-nes-featured.jpg";
+                this.gamepic.src = "assets/images/mtpo.jpg";
                 break;
             }
             case "zelda":{
