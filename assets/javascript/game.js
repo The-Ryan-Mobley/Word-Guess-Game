@@ -80,12 +80,6 @@ class word {
             }
         }
                                                                   
-        //this.audio.loop = true;
-        // const playPromise = this.audio.play();
-        // if (playPromise !== null){
-        // playPromise.catch(() => { this.aduio.play();})
-        // }
-
     }
     guessdisplay() {                                                                    //displays how many guesses the player has
         guesscounter.textContent = "Guesses Left: " + this.guesses;
@@ -135,13 +129,10 @@ function youwin() {                                                             
     reroll();
 
 }
-
-
+//program starts
 x.cleanslate();
 
 document.onkeyup = function (event) {                                                                   //main controls based on keypress
-    
-
     let press = event.key.toLowerCase();
     if(activegame === true){
         if (x.guesses >= 1) {                                                                       
@@ -156,15 +147,11 @@ document.onkeyup = function (event) {                                           
                     x.guesses--;
                     x.guessdisplay();
                 }
-    
             }
         }
         if (x.guesses === 0) {                                                                      
-            winloss.textContent = "YOU LOSE!!! PRESS S TO TRY AGAIN";
-            alert("YOU LOSE");
             activegame = false;
-            reroll();
-    
+            x.cleanslate();
         }
     }
     else{
