@@ -5,9 +5,12 @@ html, body {
   overflow: auto;
   background: #131313;
 }
+
 .selector{
     font-family: 'Press Start 2P', cursive;
     color: #02d43d;
+    border-style: solid;
+    border-color:#02d43d;
 }
 .specialtext {
     width:100%;
