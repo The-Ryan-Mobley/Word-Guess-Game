@@ -90,21 +90,22 @@ class word {
         guesscounter.textContent = "Guesses Left: " + this.guesses;
 
     }
-    cleanslate(){                                                                       //initializes the first level
-        winloss.textContent ="???";
+    cleanslate(){
+        activegame = false;                                                                       //initializes the first level
+        winloss.textContent ="PRESS S TO START";
         this.clear();
         this.draw();
         this.playmusic();
         this.guessdisplay();
     }
 }
-
+var activegame = false;
 var wordlist = ["doom", "skyrim", "mario", "punchout", "zelda", "halflife", "teamfortress"];      //list of words used
 var keyes = [];                                                                                   //logs pressed keyes
 var rand = Math.floor(Math.random() * wordlist.length);                                           //rng
 var x = new word(wordlist[rand]);                                                                 //initializes game object
 
-x.cleanslate();                                                                                   //initializes first level
+                                                                                               //initializes first level
 
 function reroll() {
     x.rightpicks =0;
@@ -133,30 +134,43 @@ function youwin() {                                                             
 
 }
 
+
+x.cleanslate();
+
 document.onkeyup = function (event) {                                                                   //main controls based on keypress
     
 
     let press = event.key.toLowerCase();
-    if (x.guesses >= 1) {                                                                       
-        if (keyes.indexOf(press) === -1) {                                                              //checks if repeat press
-            keyes.push(press);
-            if (x.name.indexOf(press) !== -1) {                                                         //checks if a key matches part of name
-                x.rightguess(press);
-                if (x.rightpicks === x.name.length) {                                                   //checks if player has filled out name(possibly can just use dummytext)
-                    youwin();
+    if(activegame === true){
+        if (x.guesses >= 1) {                                                                       
+            if (keyes.indexOf(press) === -1) {                                                              //checks if repeat press
+                keyes.push(press);
+                if (x.name.indexOf(press) !== -1) {                                                         //checks if a key matches part of name
+                    x.rightguess(press);
+                    if (x.rightpicks === x.name.length) {                                                   //checks if player has filled out name(possibly can just use dummytext)
+                        youwin();
+                    }
+                } else {                                                                                    //counts down guesses
+                    x.guesses--;
+                    x.guessdisplay();
                 }
-            } else {                                                                                    //counts down guesses
-                x.guesses--;
-                x.guessdisplay();
+    
             }
-
+        }
+        if (x.guesses === 0) {                                                                      
+            winloss.textContent = "YOU LOSE!!! PRESS S TO TRY AGAIN";
+            alert("YOU LOSE");
+            activegame = false;
+            reroll();
+    
         }
     }
-    if (x.guesses === 0) {                                                                      
-        winloss.textContent = "YOU LOSE";
-        alert("YOU LOSE");
-        reroll();
-
+    else{
+        x.cleanslate();
+        if(press.toLowerCase() === "s"){
+            activegame = true;
+            winstate.textContent = "???";
+        }
     }
 
 
